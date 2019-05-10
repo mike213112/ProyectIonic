@@ -1,9 +1,20 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Recuperar</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="primary" >
+      <ion-back-button color="dark" ></ion-back-button>
+      <ion-title align="center" >Recuperar</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="fondo">
+  <ion-card class="card">
+    <ion-card-content>
+      <ion-item>
+        <ion-input type="password" placeholder="Contraseña" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" placeholder="Repita su contraseña" ></ion-input>
+      </ion-item>
+    </ion-card-content>
+    <ion-button expand="round outline" color="secondary" (click)="RecupeDatos" >Recuperar</ion-button>
+    </ion-card>
 </ion-content>
