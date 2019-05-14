@@ -5,7 +5,9 @@ const routes: Routes = [
   { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'registrar', loadChildren: './registrar/registrar.module#RegistrarPageModule' },
-  { path: 'recuperar', loadChildren: './recuperar/recuperar.module#RecuperarPageModule' }
+  { path: 'recuperar', loadChildren: './recuperar/recuperar.module#RecuperarPageModule' },
+  { path: 'chat', loadChildren: './chat/chat.module#ChatPageModule' },
+  { path: 'datos', loadChildren: './datos/datos.module#DatosPageModule' }
 ];
 @NgModule({
   imports: [

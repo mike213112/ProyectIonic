@@ -1,4 +1,13 @@
-.welcome-card ion-img {
-  max-height: 35vh;
-  overflow: hidden;
+ion-content.fondo{
+    --background: url(../../assets/fondo-pintura-acuarela-rosa-vibrante_53876-58930.jpg);
+}
+
+ion-card.card{
+
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    top: 25%;
 }

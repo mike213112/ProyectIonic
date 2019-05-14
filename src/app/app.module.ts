@@ -12,6 +12,7 @@ import { PersonaService } from './service/persona.service';
 import { NotificationService } from './service/notification.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AutosizeModule } from 'ngx-autosize';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AutosizeModule
   ],
   providers: [
     PersonaService,
