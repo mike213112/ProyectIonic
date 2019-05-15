@@ -7,12 +7,33 @@
 </ion-header>
 
 <ion-content class="fondo">
-  <ion-card>
-    <ion-card-content>
+  <ion-card class="card">
+    <ion-card-content >
+      <form>
       <ion-item>
         <ion-label position="placeholder">Nombre:</ion-label>
-        <ion-input name="nombre" [(ngModel)]="data.nombre"></ion-input>
+        <ion-input text="text" name="nombre" [(ngModel)]="data.nombre"></ion-input>
       </ion-item>
+      <ion-item>
+        <ion-label position="placeholder">Apellido:</ion-label>
+        <ion-input type="text" name="apellido" [(ngModel)]="data.apellido"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="placeholder">Apodo:</ion-label>
+        <ion-input type="text" name="apodo" [(ngModel)]="data.apodo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="placeholder">Correo:</ion-label>
+        <ion-input type="email" name="correo" [(ngModel)]="data.correo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="placeholder">Direcciòn:</ion-label>
+        <ion-input type="text" name="direccion" [(ngModel)]="data.direccion"></ion-input>
+      </ion-item>
+    </form>
     </ion-card-content>
+    <ion-button expand="full" color="medium" (click)="enviarFormulario(data)">Enviar</ion-button>
+    <ion-button expand="full" color="medium" (click)="actualizarFormulario(data)">Actualizar</ion-button>
+    <ion-button expand="full" color="medium" (click)="MostrarDatos(data)">Mostrar</ion-button>
   </ion-card>
 </ion-content>

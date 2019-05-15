@@ -9,5 +9,44 @@ ion-card.card{
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    top: 25%;
+    top: 15%;
 }
+
+.letra{
+    font-size: 16px;
+}
+
+.list > .item-block:first-child {
+    border: medium none;
+}
+
+.item {
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border: medium none;
+
+    .text-input {
+        color: #fff;
+    }
+
+    input::-moz-placeholder  {
+        color: #fff!important;
+    }
+
+    input:-moz-placeholder {
+        color: #fff!important;
+    }
+
+    *::-webkit-input-placeholder  {
+        color: #fff!important;
+    }
+
+    *:-ms-input-placeholder  {
+        color: #fff!important;
+    }
+
+    *:-moz-placeholder  {
+        color: #fff!important;
+    }
+}
+

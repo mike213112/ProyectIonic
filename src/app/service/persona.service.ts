@@ -54,5 +54,14 @@ export class PersonaService {
       .put(url, JSON.stringify(model), {headers: headers});
   }
 
+  public getAll(model: any): Observable<any> {
+  let url: string = this.serviceURL + "/all";
+  let headers: any = new HttpHeaders({
+    'Content-Type': 'application/json'
+  });
+  return this.httpClient
+    .get(url, {headers: headers});
+
+}
   /* -------------------------------------------------------------------------------------------------------------- */
 }
