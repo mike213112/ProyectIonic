@@ -101,7 +101,7 @@ export class Tab1Page {
     }
   }
 
-  private initFrom(data): void {
+  private initData(data) {
     
     /*this.formGroup = new FormGroup({
       nombre: new FormControl('', []
@@ -116,13 +116,13 @@ export class Tab1Page {
       ),
     });*/
 
-    /*this.data = ({
+    this.data = ({
       nombre: data.nombre,
       apellido: data.apellido,
       apodo: data.apodo,
       correo: data.correo,
       direccion: data.direccion
-    });*/
+    });
 
   }
 
@@ -145,7 +145,7 @@ export class Tab1Page {
 
     this.doNotificationSubscription();
 
-    this.initFrom(this.data);    
+    this.initData(this.data);    
 
     this.personaService
       .personaList(null)

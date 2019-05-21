@@ -17,8 +17,8 @@
       </ion-col>
      
   <ion-col offset="3" size="9" *ngIf="message.user === currentUser" class="message my-message">
-    <b>{{ message.user }}</b><br>
-      <span>{{ message.msg }}</span>
+    <div text-right><b>{{ message.user }}</b></div>
+      <span text-right>{{ message.msg }}</span>
         <div class="time" text-right><br>{{ message.createdAt | date:'short' }}</div>
   </ion-col>
      

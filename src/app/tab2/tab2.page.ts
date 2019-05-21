@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonContent } from '@ionic/angular';
+import { PersonaService } from '../service/persona.service';
+import { NotificationService } from '../service/notification.service';
 
 @Component({
   selector: 'app-tab2',
@@ -8,30 +10,39 @@ import { IonContent } from '@ionic/angular';
 })
 export class Tab2Page {
 
+  data: any;
+
   messages = [
     {
-      user: 'Becky',
+      /*user: 'Becky',
       createdAt: 1557792798010,
       msg: 'Hola Miguel, como estas?'
-    },
+    */},
     {
-      user: 'mike',
+      /*user: 'Mike',
       createdAt: 1557792798010,
       msg: 'Hola Becky, bien y tu como estas?'
-    }
+    */}
   ];
 
-  currentUser = 'mike';
+  currentUser = 'Mike';
   newMsg = '';
   @ViewChild(IonContent) content: IonContent;
 
-  constructor(){
+  constructor(personaService: PersonaService, 
+              notificationService: NotificationService){
 
+    this.data = {
+      user: 'Mike',
+      createdAt: '',
+      msg: ''
+    }
+      
   }
 
   sendMessage() {
     this.messages.push({
-      user: 'mike',
+      user: 'Mike',
       createdAt: new Date().getTime(),
       msg: this.newMsg,
 
