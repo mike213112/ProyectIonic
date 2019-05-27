@@ -1,8 +1,8 @@
 import { AfterViewInit ,Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { PersonaService } from '../service/persona.service';
 import { NotificationService } from '../service/notification.service';
-import { FormControl } from '@angular/forms';
-
+//import { FormControl } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
 //import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -13,13 +13,18 @@ import { FormControl } from '@angular/forms';
 export class Tab1Page {
 
   //public formGroup: FormGroup;
-
+  
+  public mySubject: BehaviorSubject<any>;
+  public mySubject2: BehaviorSubject<any>;
   data: any;
 
   constructor(
     private personaService: PersonaService,
     private notificationService: NotificationService,
   ){
+
+    this.mySubject = new BehaviorSubject(null);
+    this.mySubject2 = new BehaviorSubject(null);
 
     this.data = {
       nombre: '',
@@ -126,6 +131,11 @@ export class Tab1Page {
 
   }
 
+  public Mysubject(result: any): void{
+    if(result == null) return;
+    this.data==result;
+  }
+
   ngAfterViewInit(): void {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
     //Add 'implements AfterViewInit' to the class.
@@ -146,6 +156,10 @@ export class Tab1Page {
     this.doNotificationSubscription();
 
     this.initData(this.data);    
+
+    this.mySubject.subscribe((result) => {
+      this.Mysubject(result)
+    })
 
     this.personaService
       .personaList(null)
