@@ -13,7 +13,7 @@ import { BehaviorSubject } from 'rxjs';
 export class Tab1Page {
 
   //public formGroup: FormGroup;
-  
+  private mensaje: String = null;
   public mySubject: BehaviorSubject<any>;
   public mySubject2: BehaviorSubject<any>;
   data: any;
@@ -24,7 +24,6 @@ export class Tab1Page {
   ){
 
     this.mySubject = new BehaviorSubject(null);
-    this.mySubject2 = new BehaviorSubject(null);
 
     this.data = {
       nombre: '',
@@ -93,6 +92,7 @@ export class Tab1Page {
 
   private handleMessageReceived(message: any): void {
     console.log('Menseje recibido' + JSON.stringify(message));
+    this.mySubject.next(message);
   }
 
   public doNotificationSubscription(): void{
@@ -131,9 +131,9 @@ export class Tab1Page {
 
   }
 
-  public Mysubject(result: any): void{
-    if(result == null) return;
-    this.data==result;
+  public ProcesarMySubject(result: any): void{
+    console.log('hacer algo con: ' + JSON.stringify(result));
+    this.mensaje = this.mensaje + '' + JSON.stringify(result);
   }
 
   ngAfterViewInit(): void {
@@ -158,8 +158,8 @@ export class Tab1Page {
     this.initData(this.data);    
 
     this.mySubject.subscribe((result) => {
-      this.Mysubject(result)
-    })
+      this.ProcesarMySubject(result)
+    });
 
     this.personaService
       .personaList(null)
