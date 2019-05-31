@@ -4,13 +4,14 @@ import { NotificationService } from '../service/notification.service';
 //import { FormControl } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 //import { FormGroup, FormControl } from '@angular/forms';
+import * as socketIo from 'socket.io-client';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit{
 
   //public formGroup: FormGroup;
   private mensaje: String = null;
@@ -71,7 +72,7 @@ export class Tab1Page {
 
   }
 
-  public MostraDatos(data): void {
+  public MostarDatos(data): void {
     console.log(data);
 
     let datosAEnviar: any = {
@@ -83,8 +84,7 @@ export class Tab1Page {
     };
 
     console.log('Registro de las personas:' + JSON.stringify(datosAEnviar));
-
-    this.personaService.getAll(datosAEnviar).subscribe(result =>{
+    this.personaService.personaList(datosAEnviar).subscribe(result =>{
       console.log('Datos desde el serve:' + JSON.stringify(result));
     });
 
@@ -151,7 +151,11 @@ export class Tab1Page {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    console.log('on init');
+    
+    const socket = socketIo('http://localhost:8585/persona/all')
+    socket.on('hola', (data) => console.log(data));
+
+    console.log('on init'),
 
     this.doNotificationSubscription();
 

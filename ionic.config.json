@@ -1,5 +1,7 @@
 {
   "name": "ProyectoFinalIonic",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
