@@ -4,7 +4,6 @@ import { NotificationService } from '../service/notification.service';
 //import { FormControl } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 //import { FormGroup, FormControl } from '@angular/forms';
-import * as socketIo from 'socket.io-client';
 
 @Component({
   selector: 'app-tab1',
@@ -151,9 +150,6 @@ export class Tab1Page implements OnInit{
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    
-    const socket = socketIo('http://localhost:8585/persona/all')
-    socket.on('hola', (data) => console.log(data));
 
     console.log('on init'),
 
