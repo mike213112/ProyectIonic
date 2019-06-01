@@ -72,7 +72,7 @@ export class Tab1Page implements OnInit{
   }
 
   public MostarDatos(data): void {
-    console.log(data);
+    //console.log(data);
 
     let datosAEnviar: any = {
       nombre: data.nombre,
@@ -82,7 +82,7 @@ export class Tab1Page implements OnInit{
       direccion: data.direccion
     };
 
-    console.log('Registro de las personas:' + JSON.stringify(datosAEnviar));
+    //console.log('Registro de las personas:' + JSON.stringify(datosAEnviar));
     this.personaService.personaList(datosAEnviar).subscribe(result =>{
       console.log('Datos desde el serve:' + JSON.stringify(result));
     });
