@@ -6,7 +6,7 @@ import {Observable} from 'rxjs/index';
 export class PersonaService {
 
   /* -------------------------------------------------------------------------------------------------------------- */
-  private serviceURL = 'http://localhost:8585/persona';
+  private serviceURL = 'http://192.168.1.55:8585/persona';
 
   private httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',

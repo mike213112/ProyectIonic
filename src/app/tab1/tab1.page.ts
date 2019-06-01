@@ -16,6 +16,7 @@ export class Tab1Page implements OnInit{
   private mensaje: String = null;
   public mySubject: BehaviorSubject<any>;
   public mySubject2: BehaviorSubject<any>;
+  public dataTable = [];
   data: any;
 
   constructor(
@@ -45,9 +46,10 @@ export class Tab1Page implements OnInit{
       correo: data.correo,
       direccion: data.direccion
     };
-      
+    
     console.log('Datos a enviar:' + JSON.stringify(datosAEnviar));
     this.personaService.create(datosAEnviar).subscribe(result => {
+      //this.dataTable.push(datosAEnviar)
       console.log('Datos desde el serve:' + JSON.stringify(result));
     });
 
@@ -91,6 +93,7 @@ export class Tab1Page implements OnInit{
 
   private handleMessageReceived(message: any): void {
     console.log('Menseje recibido' + JSON.stringify(message));
+    this.dataTable.push(message);
     this.mySubject.next(message);
   }
 
@@ -132,6 +135,7 @@ export class Tab1Page implements OnInit{
 
   public ProcesarMySubject(result: any): void{
     console.log('hacer algo con: ' + JSON.stringify(result));
+    //this.dataTable.push(result)
     this.mensaje = this.mensaje + '' + JSON.stringify(result);
   }
 
