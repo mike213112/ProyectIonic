@@ -15,7 +15,6 @@ export class Tab1Page implements OnInit{
   //public formGroup: FormGroup;
   private mensaje: String = null;
   public mySubject: BehaviorSubject<any>;
-  public mySubject2: BehaviorSubject<any>;
   public dataTable = [];
   data: any;
 
@@ -31,14 +30,14 @@ export class Tab1Page implements OnInit{
       apellido: '',
       apodo: '',
       correo: '',
-      direccion: ''    
+      direccion: ''
     }
 
   }
 
   public enviarFormulario(data): void {
     console.log(data);
-   
+
     let datosAEnviar: any = {
       nombre: data.nombre,
       apellido: data.apellido,
@@ -46,10 +45,10 @@ export class Tab1Page implements OnInit{
       correo: data.correo,
       direccion: data.direccion
     };
-    
+
     console.log('Datos a enviar:' + JSON.stringify(datosAEnviar));
     this.personaService.create(datosAEnviar).subscribe(result => {
-      //this.dataTable.push(datosAEnviar)
+  
       console.log('Datos desde el serve:' + JSON.stringify(result));
     });
 
@@ -86,6 +85,7 @@ export class Tab1Page implements OnInit{
 
     //console.log('Registro de las personas:' + JSON.stringify(datosAEnviar));
     this.personaService.personaList(datosAEnviar).subscribe(result =>{
+    
       console.log('Datos desde el serve:' + JSON.stringify(result));
     });
 
@@ -93,8 +93,7 @@ export class Tab1Page implements OnInit{
 
   private handleMessageReceived(message: any): void {
     console.log('Menseje recibido' + JSON.stringify(message));
-    this.dataTable.push(message);
-    this.mySubject.next(message);
+   
   }
 
   public doNotificationSubscription(): void{
@@ -102,6 +101,7 @@ export class Tab1Page implements OnInit{
     try{
       this.notificationService.getPersonaNotification().subscribe((result) =>{
         this.handleMessageReceived(result);
+  
       });
     } catch(e){
       console.log(e);
@@ -109,7 +109,7 @@ export class Tab1Page implements OnInit{
   }
 
   private initData(data) {
-    
+
     /*this.formGroup = new FormGroup({
       nombre: new FormControl('', []
       ),
@@ -134,9 +134,7 @@ export class Tab1Page implements OnInit{
   }
 
   public ProcesarMySubject(result: any): void{
-    console.log('hacer algo con: ' + JSON.stringify(result));
-    //this.dataTable.push(result)
-    this.mensaje = this.mensaje + '' + JSON.stringify(result);
+    
   }
 
   ngAfterViewInit(): void {
@@ -159,9 +157,10 @@ export class Tab1Page implements OnInit{
 
     this.doNotificationSubscription();
 
-    this.initData(this.data);    
+    this.initData(this.data);
 
     this.mySubject.subscribe((result) => {
+      
       this.ProcesarMySubject(result)
     });
 

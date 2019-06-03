@@ -32,15 +32,7 @@
       </ion-item>
     </form>
     </ion-card-content>
-    
-      <ion-row *ngFor="let data of dataTable">
-        <!--<ion-col size="12">{{data.nombre}}</ion-col>
-        <ion-col size="12">{{data.apellido}}</ion-col>
-        <ion-col size="12">{{data.apodo}}</ion-col>
-        <ion-col size="12">{{data.correo}}</ion-col>
-        <ion-col size="12">{{data.direccion}}</ion-col>-->
-      </ion-row>
-    
+
     <ion-button expand="full" color="medium" (click)="enviarFormulario(data)">Enviar</ion-button>
     <ion-button expand="full" color="medium" (click)="actualizarFormulario(data)">Actualizar</ion-button>
     <ion-button expand="full" color="medium" (click)="MostarDatos(data)">Mostrar</ion-button>
